@@ -1,0 +1,12 @@
+{
+  "overrides": [
+    {
+      "files": "**/*.ts",
+      "options": {
+        "semi": true,
+        "tabWidth": 4,
+        "singleQuote": true
+      }
+    }
+  ]
+}
