@@ -1,16 +1,13 @@
 import { Keyv } from 'keyv';
-import KeyvSqlite from '@keyv/sqlite';
 import { createCache } from 'cache-manager';
 import ms from 'ms';
+import { CacheableMemory } from 'cacheable';
 
 let cache: ReturnType<typeof createCache> | null = null;
 
 export const getCache = () => {
     if (!cache) {
-        const store = new KeyvSqlite({
-            table: 'caches',
-            uri: 'sqlite://./caches.sqlite',
-        });
+        const store = new CacheableMemory({ ttl: ms('5m'), lruSize: 5000 });
         const keyv = new Keyv({
             store,
         });

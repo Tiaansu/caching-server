@@ -29,3 +29,7 @@ lerna-debug.log*
 
 # Database
 *.sqlite
+
+# Binaries and build dir
+*.exe
+out
